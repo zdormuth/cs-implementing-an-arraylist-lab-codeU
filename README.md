@@ -115,7 +115,9 @@ HINT: Avoid repeating the code that makes the array bigger.
 *  Last one: fill in the body of `remove`.  [The documentation is here](https://docs.oracle.com/javase/7/docs/api/java/util/List.html#remove(int)).  When you finish this one, all tests should pass.
 
 
-Once you have your implementation working, compare it to mine, which you can find by checking out the solutions branch of the repo, or [you can read it on GitHub](https://TODO: add_this_later).
+Once you have your implementation working, compare it to mine, which you can find by checking out the solutions branch of the repo, or [you can read it on GitHub](https://github.com/learn-co-students/cs-implementing-an-arraylist-lab-codeU/tree/solution).
 
 
 
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/cs-implementing-an-arraylist-lab'>Implementing an Array List</a> on Learn.co and start learning to code for free.</p>
