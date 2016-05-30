@@ -63,6 +63,18 @@ public class MyArrayList<E> implements List<E> {
 			throw new IndexOutOfBoundsException();
 		}
 		// TODO: fill in the rest of this method
+		if (size == array.length)
+		{
+			E[] bigger = (E[]) new Object[array.length + 1];
+			System.arraycopy(array, 0, bigger, 0, index);
+			array = bigger;
+		}
+		if (index != size)
+		{
+			System.arraycopy(array, index, array, index+1, size-index);
+		}
+		array[index] = element;
+		size++;				
 	}
 
 	@Override
@@ -112,7 +124,32 @@ public class MyArrayList<E> implements List<E> {
 	@Override
 	public int indexOf(Object target) {
 		// TODO: fill in this method
-		return 0;
+		// returns the index of the first occurance of the 
+		// specified element in the list, or -1 if the list
+		// does not contain the element
+		// if target is null, find first occurance of null element
+		if (target == null)
+		{
+			for (int i = 0; i < size; i++)
+			{
+				if (array[i] == null)
+				{
+					return i;
+				}
+			}
+		}
+		// if target is not null, find first element where element == target
+		else
+		{
+			for (int i = 0; i < size; i++)
+			{
+				if (target.equals(get(i)))
+				{
+					return i;
+				}
+			}
+		}
+		return -1;		
 	}
 
 	/** Checks whether an element of the array is the target.
@@ -182,8 +219,17 @@ public class MyArrayList<E> implements List<E> {
 
 	@Override
 	public E remove(int index) {
-		// TODO: fill in this method.
-		return null;
+		if (index < 0 || index > size)
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		E oldElement = array[index];
+		if (index != (size-1))
+		{
+			System.arraycopy(array, index+1, array, index, size-index-1);
+		}
+		size--;					
+		return oldElement;
 	}
 
 	@Override
@@ -203,7 +249,9 @@ public class MyArrayList<E> implements List<E> {
 	@Override
 	public E set(int index, E element) {
 		// TODO: fill in this method.
-		return null;
+		E oldElement = get(index);
+		array[index] = element;
+		return oldElement;
 	}
 
 	@Override
